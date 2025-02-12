@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TODO: Change title -->
+  <title>Alpha Release</title>
+
+  <!-- Load Bulma from CDN (consider saving it to repository instead) -->
+  <!-- https://bulma.io/ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+
+  <!-- Load Font Awesome 5 (free) icons -->
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+
+  <section class="hero is-info is-medium is-bold" style="background-image: url('resources/images/prototype1-image.jpg'); background-repeat: no-repeat; object-fit: cover; width: 100%;
+    background-size: cover;">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <span class="navbar-item">
+              <h1 style="font-size: 22px">Final Project</h1>
+            </span>
+            <span class="navbar-burger burger" data-target="navbarMenu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+              <div class="tabs is-right">
+                <ul>
+
+                  <li>
+                    <a class="is-info is-bold" href="index.html">
+                      <span class="icon">
+                        <i class="fas fa-home"></i>
+                      </span>
+                      <span>Home</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class=" is-info is-bold" href="data.html">
+                      <span class="icon">
+                        <i class="fas fa-table"></i>
+                      </span>
+                      <span>Data</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class=" is-info is-bold" href="prototype3.html">
+                      <span class="icon">
+                        <i class="fas fa-globe-americas"></i>
+                      </span>
+                      <span>Final Release</span>
+                    </a>
+                  </li>
+
+                  <li class="is-active">
+                    <a class=" is-info is-bold" href="prototype1.html">
+                      <span class="icon">
+                        <i class="fas fa-chart-bar"></i>
+                      </span>
+                      <span>Alpha Release</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class=" is-info is-bold" href="prototype2.html">
+                      <span class="icon">
+                        <i class="far fa-map"></i>
+                      </span>
+                      <span>Beta Release</span>
+                    </a>
+                  </li>
+
+
+
+                  <li>
+                    <a class=" is-info is-bold" href="acknowledgement.html">
+                      <span class="icon">
+                        <i class="fas fa-tasks"></i>
+                      </span>
+                      <span>Acknowledgement</span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="navbar-end">
+                  <div class="tabs is-right">
+                    <span class="navbar-item">
+                      <a class=" is-info is-bold" href="about.html">
+                        <span class="icon">
+                          <i class="far fa-address-card"></i>
+                        </span>
+                        <span>About me</span>
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="title" style="font-size: 60px">
+          SF Police Department Assault Report for March, 2020
+        </p>
+        <!-- <p class="subtitle">
+        Project Title
+      </p> -->
+      </div>
+    </div>
+
+    <div class="hero-foot">
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- Begin page content -->
+      <div class="content">
+
+        <p style="font-family: sans-serif; font-style: italic; text-align: right; font-size: smaller;">- (Image Source -
+          <a href="https://www.einfochips.com/blog/best-business-intelligence-and-data-visualization-tools-for-2019/"
+            target="_blank">Best Business Intelligence and Data Visualization Tools for 2029</a> - February 21, 2019)
+        </p>
+
+        <h3 id="wrangling">Wrangling</h3>
+
+        <p>The dataset for the below prototype is wrangled in the following way:
+
+        <pre>
+Filtered By:    Incident Datetime between "March 1, 2020" and "March 31, 2020",
+                Incident Category as "Assault"
+
+Grouped By:     Incident Date (day), Incident Number, Incident Subcategory, 
+                Incident Description, Police District, Analysis neighborhood,
+                Supervisor District
+
+Aggregated By:  Incident Number (sum)
+        </pre>
+
+        <h3>Tableau Prototype (Alpha Release)</h3>
+
+        <img src="resources/images/Tableau_Prototype_alpha_release.png" alt="tableau-prototype-alpha" width="960px"
+          height="600px">
+
+        <h3>Data Encoding and Interpretation</h3>
+        <p>Color show the incident subcategory -
+        <ul>
+          <li>Aggravated Assault</li>
+          <li>Simple Assault</li>
+        </ul>
+        The length of the bar indicates the number of incidents. The x axis is represented by the Day, and the y axis is
+        represented by Incident Numbers.
+        </p>
+
+        <h3>Conclusion based on the prototype</h3>
+        <p>
+        <ul>
+          <li>March 2nd has the highest number of assault cases reported.</li>
+          <li>There is a little decrease in assault cases after the lockdown period was started (March 17, 2020).</li>
+        </ul>
+        </p>
+
+        <h3>Peer Review Feedback</h3>
+        <p>That will be an interesting look at this dataset. The dataset will have a good mix of data types for this
+          project.
+
+          I strongly recommend, since this is a dataset we have looked at before, that you try to connect directly to
+          the data using their SODA API. You just need to create an account and then an API key (both free).</p>
+
+      </div>
+      <!-- End page content -->
+    </div>
+  </section>
+
+  <!-- Page footer -->
+  <!-- https://bulma.io/documentation/layout/footer/ -->
+  <footer class="footer">
+    <div class="content has-text-centered is-size-7">
+      <p>
+        <a href="#top">
+          <span class="fas fa-arrow-up"></span>
+          <span class="has-text-weight-medium">Back to Top</span>
+        </a>
+      </p>
+
+      <p>
+        <!-- TODO: Change to link to your Github repository -->
+        <a href="https://github.com/yuktachikate/SF-Fire-Departments-Visualization" class="button is-small"
+          style="padding-left: 1em; padding-right: 1em;">
+          <i class="fab fa-github-alt"></i>&nbsp;<strong>Github</strong>
+        </a>
+
+        <a href="https://fontawesome.com/" class="button is-small" style="padding-left: 1em; padding-right: 1em;">
+          <i class="fab fa-font-awesome"></i>&nbsp;<strong>FontAwesome</strong>
+        </a>
+
+        <a href="https://bulma.io" class="button is-small">
+          <img src="https://bulma.io/images/made-with-bulma--semiblack.png" alt="Made with Bulma" width="128"
+            height="24">
+        </a>
+      </p>
+    </div>
+  </footer>
+  <!-- End page footer -->
+
+  <!-- Mobile menu responsiveness -->
+  <!-- https://bulma.io/documentation/components/navbar/ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+    });
+  </script>
+  <!-- End mobile menu responsiveness -->
+</body>
+
+</html>

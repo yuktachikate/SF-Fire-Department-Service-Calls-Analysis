@@ -1,0 +1,165 @@
+body {
+    background-color: white;
+    /* font-family: sans-serif; */
+    /* text-align: center; */
+    /* font-size: 9pt; */
+  }
+
+  select {
+    /* position: absolute; */
+    align-items: center;
+    width: auto;
+    height: auto;
+    font-size: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    border-bottom: 2px solid #DCDCDC;
+    color: #c0392b;
+    margin-left: 30px;
+    padding: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Adding transition effect */
+    transition: color 0.3s ease, background-color 0.3s ease, border-bottom-color 0.3s ease;
+  }
+  /* For IE <= 11 */
+  select::-ms-expand {
+    display: none; 
+  }
+
+select:hover,
+select:focus {
+  color: white;
+  background-color: #8c3a3d;
+  border-bottom-color: #962d22;
+}
+
+p#year-button{
+    position: absolute;
+    left: 200px;
+    font-size: large;
+}
+
+select#selectButton {
+    font-size: 14px;
+    text-align: center;
+}
+
+p#category-button{
+    position: absolute;
+    left: 70px;
+    font-size: large;
+}
+
+select#categoryButton {
+  font-size: 14px;
+  align-content: left;
+}
+
+  svg#map {
+    background-color: rgb(172, 216, 241);
+    border: 1px solid lightgrey;
+  }
+
+  svg#map2 {
+    background-color: rgb(172, 216, 241);
+    border: 1px solid lightgrey;
+  }
+  
+  #tooltip {
+    font-weight: 600;
+    text-shadow: 0px 10px 10px white;
+    font: 20px sans-serif;
+    fill: black;
+    stroke: none;
+  }
+  
+  div.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    font: 12px sans-serif;
+    background-color: white;
+    border: 1px #b7b7b7 solid;
+    pointer-events: none;
+    width: auto;
+  }
+  
+  path.land {
+    fill: #dddddd;
+    stroke: none;
+  }
+  
+  path.neighborhood {
+    fill: white;
+    stroke: white;
+    stroke-width: 3.5px;
+    pointer-events: none;
+  }
+
+  path.land2 {
+    fill: #dddddd;
+    stroke: none;
+  }
+  
+  path.neighborhood2 {
+    fill: white;
+    stroke: white;
+    stroke-width: 3.5px;
+    pointer-events: none;
+  }
+
+  
+  
+  .active {
+    stroke: black !important;
+    stroke-width: 1.5px !important;
+  }
+  
+  a:link,
+  a:visited {
+    color: #444444;
+  }
+  
+  a:hover,
+  a:active {
+    color: red;
+  }
+  
+  /* Legend Position Style */
+  .legend {
+    position: absolute;
+    left: 1300px;
+    top: 220px;
+  }
+
+  rect.bordered {
+    stroke: #E6E6E6;
+    stroke-width: 2px;
+  }
+
+  .bar {
+    fill: #b64142;
+    opacity: 0.8;
+  }
+
+  text#chart_year {
+    font-weight: 200;
+    text-anchor: middle;
+  }
+
+  text#chart_neighborhood {
+    font-weight: 200;
+    text-anchor: start;
+    font-family: sans-serif;
+  }
+
+  text#chart_label {
+    font-weight: 200;
+    text-anchor: start;
+    font-family: sans-serif;
+  }

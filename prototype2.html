@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TODO: Change title -->
+  <title>Beta Release</title>
+
+  <!-- Load Bulma from CDN (consider saving it to repository instead) -->
+  <!-- https://bulma.io/ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+
+  <!-- Load Font Awesome 5 (free) icons -->
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+
+  <section class="hero is-info is-medium is-bold" style="background-image: url('resources/images/prototype1-image.jpg'); background-repeat: no-repeat; object-fit: cover; width: 100%;
+    background-size: cover;">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <span class="navbar-item">
+              <h1 style="font-size: 22px">Final Project</h1>
+            </span>
+            <span class="navbar-burger burger" data-target="navbarMenu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+              <div class="tabs is-right">
+                <ul>
+
+                  <li>
+                    <a class="is-info is-bold" href="index.html">
+                      <span class="icon">
+                        <i class="fas fa-home"></i>
+                      </span>
+                      <span>Home</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class=" is-info is-bold" href="data.html">
+                      <span class="icon">
+                        <i class="fas fa-table"></i>
+                      </span>
+                      <span>Data</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class=" is-info is-bold" href="prototype3.html">
+                      <span class="icon">
+                        <i class="fas fa-globe-americas"></i>
+                      </span>
+                      <span>Final Release</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class=" is-info is-bold" href="prototype1.html">
+                      <span class="icon">
+                        <i class="fas fa-chart-bar"></i>
+                      </span>
+                      <span>Alpha Release</span>
+                    </a>
+                  </li>
+                  <li class="is-active">
+                    <a class=" is-info is-bold" href="prototype2.html">
+                      <span class="icon">
+                        <i class="far fa-map"></i>
+                      </span>
+                      <span>Beta Release</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class=" is-info is-bold" href="acknowledgement.html">
+                      <span class="icon">
+                        <i class="fas fa-tasks"></i>
+                      </span>
+                      <span>Acknowledgement</span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="navbar-end">
+                  <div class="tabs is-right">
+                    <span class="navbar-item">
+                      <a class=" is-info is-bold" href="about.html">
+                        <span class="icon">
+                          <i class="far fa-address-card"></i>
+                        </span>
+                        <span>About me</span>
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="title" style="font-size: 60px">
+          SF Police Department Aggravated Assault Cases for February - April 2020
+        </p>
+        <!-- <p class="subtitle">
+        Project Title
+      </p> -->
+      </div>
+    </div>
+
+    <div class="hero-foot">
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- Begin page content -->
+      <div class="content">
+
+        <p style="font-family: sans-serif; font-style: italic; text-align: right; font-size: smaller">- (Image Source -
+          <a href="https://www.einfochips.com/blog/best-business-intelligence-and-data-visualization-tools-for-2019/"
+            target="_blank" style="color: cornflowerblue;">Best Business Intelligence and Data Visualization Tools for
+            2029</a> - February 21, 2019)</p>
+
+        <h3 id="map-d3">D3 Prototype (Beta Release)</h3>
+        <p>See <a href="#interactivity-guide" style="color: cornflowerblue;">Interactivity Guide</a> for the
+          visualization.</p>
+
+        <h4>Aggravated Assault Cases in San Francisco form February 2020 - April 2020</h4>
+
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://unpkg.com/d3-simple-slider"></script>
+        <script src="resources/js/map.js"></script>
+        <link rel="stylesheet" href="resources/css/d3/style.css" type="text/css">
+        <link rel="stylesheet" href="resources/css/d3/table.css" type="text/css">
+
+        <figure>
+          <svg width="960" height="500" id="betamap1">
+            <g id="plot">
+              <g id="basemap"></g>
+              <g id="streets" pointer-events="none"></g>
+              <g id="outline" pointer-events="none"></g>
+              <g id="arrests"></g>
+              <g id="tooltip" pointer-events="none"></g>
+              <g id="details" pointer-events="none"></g>
+            </g>
+            <g id="legend"></g>
+          </svg>
+          <figcaption style="text-align: left; font-size: 13px;">
+            Source: <a
+              href="https://data.sfgov.org/Public-Safety/Police-Department-Incident-Reports-2018-to-Present/wg3w-h783"
+              target="_blank" style="color: cornflowerblue;">SF Police Department Incident Reports: 2018 to Present</a>
+            (<a href="https://data.sfgov.org/Geographic-Locations-and-Boundaries/SF-Find-Neighborhoods/pty2-tcw4"
+              target="_blank" style="color: cornflowerblue;">Neighborhoods</a>, <a
+              href="https://data.sfgov.org/browse?category=Geographic+Locations+and+Boundaries" target="_blank"
+              style="color: cornflowerblue;">Streets</a>)
+          </figcaption>
+
+          <div class="align-items-center">
+            </br>
+            <div width="960" class="col-sm-2">
+              <p id="value-simple"></p>
+            </div>
+            <div class="col-sm">
+              <div id="slider-simple"></div>
+            </div>
+          </div>
+
+
+        </figure>
+        <script>
+          drawMap();
+        </script>
+
+        <h3>Question</h3>
+        <p>Which neighborhood has the most Aggravated Assault Cases in the month of February, March, and April? Have the
+          number of cases decreased due to lockdown?</p>
+
+        <h3>Answer</h3>
+        <p>
+        <ul>
+          <li>The answer for the first question is easy to find from the D3 Prototype. You can easily see from the
+            prototype that the neighborhoods of "Mission", "Tenderloin", and "South of Market" have the maximum number
+            of cases in the given time period. However, it is very hard to determine, which neighbour out of three has
+            the most number of incidents, A better way to represent this will be to use a Cholreopleth map. A tableau
+            prototype for the above dataset visualized in a chloreopleth map is given below.</li>
+        </ul>
+        <img src="resources/images/betamap1.png" alt="Tableab Beta Map 1" width="600">
+        </p>
+
+        <p>
+        <ul>
+          <li>The answer to the second question is difficult to answer from the prototype without some filtering. I have
+            implemented filtering on the legend which can be accessed by clicking on the legend color box of the
+            particular month. After filtering the visualization, we can see that for the month of April, the number of
+            cases are relatively low than the previous month. For the month of March, as the data is for the whole month
+            and not from the date of the lockdown (there is a lie factor), we cannot say if the lockdown change the
+            number of cases. Some data points overlaps each other which will be fixed before the final release. Also, as
+            the data is dense, creating a scatter plot matrix or a bar chart (for the final release) to answer this
+            question will be a better option.</li>
+          <li><strong>Note</strong>: There are two data point (outliers) of whose neighborhoods are blank and will be
+            removed before the final release.</li>
+        </ul>
+        </p>
+
+        <h3>Data Encoding</h3>
+        <p>
+        <ul>
+          <li>
+            The circles represent the location (lattitude and longitude) of every request for Aggravated Assault cases
+            for the month of February, March, and April. The circle is enclosed as per the request source.
+          </li>
+          <li>
+            Color show the Aggravated Assault Cases by month -
+            <ul>
+              <li>February</li>
+              <li>March</li>
+              <li>April</li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
+        <h3 id="wrangling">Wrangling</h3>
+
+        <p>The dataset for the below prototype is wrangled in the following way:
+
+        <pre>
+Filtered By:    Incident Datetime between "Feb 1, 2020" and "April 28, 2020",
+                Incident Category as "Assault"
+                Incident Subcategory as "Aggravated Assault"
+                Latitude is "not blank"
+                Longitude is "not blank"
+
+Basemap:        <a href="https://data.sfgov.org/Geographic-Locations-and-Boundaries/SF-Find-Neighborhoods/pty2-tcw4" target="_blank" style="color: cornflowerblue;">SF Find Neighborhoods</a>
+Streets:        <a href="https://data.sfgov.org/browse?category=Geographic+Locations+and+Boundaries" target="_blank" style="color: cornflowerblue;">SF Street names</a>
+
+Aggregated By:  Incident Number (count)
+        </pre>
+
+        <h3 id="interactivity-guide">Interactivity Guide</h3>
+        <p>This visualization will have the following interactivities:</p>
+
+        <table class="table is-bordered">
+          <thead>
+            <tr>
+              <th>Interactivity</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tfoot>
+          </tfoot>
+          <tbody>
+            <tr>
+              <td>
+                Ability to zoom the map by scrolling up or down.
+              </td>
+              <td>
+                <p style="text-align: center;"><i class="has-text-success fas fa-check-circle"></i></p>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Ability to filter the map based on month by toggling the circle box in legend.
+              </td>
+              <td>
+                <p style="text-align: center;"><i class="has-text-success fas fa-check-circle"></i></p>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Clicking a particular neighborhood will zoom that neighborhood
+              </td>
+              <td>
+                <p style="text-align: center;"><i class="has-text-success fas fa-check-circle"></i></p>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Clicking svg or data elements to zoom out of the map
+              </td>
+              <td>
+                <p style="text-align: center;"><i class="has-text-success fas fa-check-circle"></i></p>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Ability to move the map by dragging
+              </td>
+              <td>
+                <p style="text-align: center;"><i class="has-text-success fas fa-check-circle"></i></p>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                hovering on the data elements in non-proportional map gives specific information about that data point.
+              </td>
+              <td>
+                <p style="text-align: center;"><i class="has-text-success fas fa-check-circle"></i></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Go back to <a href="#map-d3" style="color: cornflowerblue;">D3 Prototype</a></p>
+
+        </p>
+
+        <h3>Peer Review Feedback</h3>
+        <table class="table is-bordered">
+          <thead>
+            <tr>
+              <th>Feedbacks</th>
+            </tr>
+          </thead>
+          <tfoot>
+          </tfoot>
+          <tbody>
+            <tr>
+              <td>
+                Overall, it's a nice website with a decent number of topic-related images and also a great clear map.
+                The size, color and legend of the map are perfect without any confusion and distraction. But it looks
+                like some colors on the map are not listed on the legend. The map loads very slow, it would be great if
+                you could reduce the street numbers for faster rendering, considering they are not essential to your
+                visualization. A dot on the ocean needs some help to find its home.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                it seems like the filter has a bug that will reset the dots unexpectedly, hope to see you fix it for
+                your final.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                the data should be calculated value with respect to population density data rather presenting it as a
+                raw count of incidents
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                there is a certain amount of lie factor because of circle overlapping and because the population density
+                of neighborhood is not taken into consideration
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                the map is not too dense and it seems to include nearly 1000 rows approx
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                The base map of SF is centered well and is a reasonable size. The width of the seems is pretty wide. I
+                think this is because of the outlier at the top left. The thickness of the district boundaries is a good
+                size to differentiate them from the streets. The size of the symbols is good. They almost overlap too
+                much but the brushing helps.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                There doesn't seem to be a lot of misleading information, however, the toggle filtering feature filters
+                the wrong dates.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                The amount of data seems good. I would maybe add more months to see how these few months compared to the
+                time before the lockdown. Maybe remove the subcategory from the tooltip since all the cases are
+                aggravated assault cases.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                There's a good amount of data on the map but compared to the size of the svg, I wouldn't say that the
+                data density is very high. The water of the map takes up half of the space.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                The design is clean and organized. It seems a little boring because there is a lot of negative space.
+              </td>
+            </tr>
+
+
+          </tbody>
+        </table>
+
+        <h3>Changes for Final release 1.0.0</h3>
+        <table class="table is-bordered">
+          <thead>
+            <tr>
+              <th>Feedbacks</th>
+            </tr>
+          </thead>
+          <tfoot>
+          </tfoot>
+          <tbody>
+            <tr>
+              <td>
+                Changed the non-proportional map to a choropleth map for better understanding of data distribution over
+                neighborhoods
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Instead of comparing data only for Aggravated Assault cases, the choropleth map uses a filter drop down
+                which allows filtering based on all incident categories which are relevant for the theme (Assault,
+                Burglary, Robbery, etc.)
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Created a bar chart to show trend in cases per incident category per neighborhood in months.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                linked interactivities across bar chart and choropleth map.
+              </td>
+            </tr>
+
+
+          </tbody>
+        </table>
+        <p>Go to <a href="prototype4.html" style="color: cornflowerblue;">Final Release 1.0.0 prototype</a></p>
+        <h3>NOTE: Final
+          Release 0.1.0 have been furthur changed. You can access it from <a href="prototype3.html"
+            style="color: cornflowerblue;">Final Release 1.0.1</a></h3>
+
+
+        <h3>Changes for Final Releases 1.0.1</h3>
+        <p>
+        <table class="table is-bordered">
+          <thead>
+            <tr>
+              <th>Modifications</th>
+            </tr>
+          </thead>
+          <tfoot>
+          </tfoot>
+          <tbody>
+            <tr>
+              <td>
+                Changed the basemap of the choropleth map from "SF Neighborhoods" to "Police District" because of
+                missing data for many neighborhoods within the report (You can see in Final Release 0.1.0 that many
+                neighborhoods are empty for all
+                cases for 2019 data). Initially I was planning to use the "Supervisor District" basemap but, due to
+                missing value in some incident reports for supervisor district, I decided to go with Police District.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Changed the bar chart to a line chart to easily show trends in how crime rates are affected due to
+                lockdown
+              </td>
+            </tr>
+
+
+          </tbody>
+        </table>
+        </p>
+        <p>Go to <a href="prototype3.html" style="color: cornflowerblue;">Final Release 1.0.1</a></p>
+
+      </div>
+      <!-- End page content -->
+    </div>
+  </section>
+
+  <!-- Page footer -->
+  <!-- https://bulma.io/documentation/layout/footer/ -->
+  <footer class="footer">
+    <div class="content has-text-centered is-size-7">
+      <p>
+        <a href="#top">
+          <span class="fas fa-arrow-up"></span>
+          <span class="has-text-weight-medium">Back to Top</span>
+        </a>
+      </p>
+
+      <p>
+        <!-- TODO: Change to link to your Github repository -->
+        <a href="https://github.com/yuktachikate/SF-Fire-Departments-Visualization" class="button is-small"
+          style="padding-left: 1em; padding-right: 1em;">
+          <i class="fab fa-github-alt"></i>&nbsp;<strong>Github</strong>
+        </a>
+
+        <a href="https://fontawesome.com/" class="button is-small" style="padding-left: 1em; padding-right: 1em;">
+          <i class="fab fa-font-awesome"></i>&nbsp;<strong>FontAwesome</strong>
+        </a>
+
+        <a href="https://bulma.io" class="button is-small">
+          <img src="https://bulma.io/images/made-with-bulma--semiblack.png" alt="Made with Bulma" width="128"
+            height="24">
+        </a>
+      </p>
+    </div>
+  </footer>
+  <!-- End page footer -->
+
+  <!-- Mobile menu responsiveness -->
+  <!-- https://bulma.io/documentation/components/navbar/ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+    });
+  </script>
+  <!-- End mobile menu responsiveness -->
+</body>
+
+</html>
